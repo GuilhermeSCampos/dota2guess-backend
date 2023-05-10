@@ -1,0 +1,53 @@
+{
+  "classicGuessHeroes": [
+    "Phantom Assassin",
+    "Lina",
+    "Undying",
+    "Abaddon",
+    "Bloodseeker",
+    "Spirit Breaker",
+    "Kunkka",
+    "Chaos Knight",
+    "Axe",
+    "Pudge",
+    "Enigma",
+    "Luna",
+    "Leshrac",
+    "Queen of Pain",
+    "Centaur Warrunner"
+  ],
+  "quoteGuessHeroes": [
+    "Shadow Shaman",
+    "Slark",
+    "Dawnbreaker",
+    "Kunkka",
+    "Visage",
+    "Riki",
+    "Necrophos",
+    "Grimstroke",
+    "Clinkz",
+    "Dark Willow",
+    "Sniper",
+    "Crystal Maiden",
+    "Alchemist",
+    "Phantom Lancer",
+    "Dark Seer"
+  ],
+  "skillGuessHeroes": [
+    "Doom",
+    "Abaddon",
+    "Tiny",
+    "Bristleback",
+    "Winter Wyvern",
+    "Chen",
+    "Pangolier",
+    "Storm Spirit",
+    "Lion",
+    "Earth Spirit",
+    "Timbersaw",
+    "Ogre Magi",
+    "Medusa",
+    "Slardar",
+    "Centaur Warrunner"
+  ]
+}

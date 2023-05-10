@@ -1,0 +1,17 @@
+{
+  "classicGuess": {
+    "count": 0,
+    "todayHero": "Phantom Assassin",
+    "lastHero": "Lina"
+  },
+  "quoteGuess": {
+    "count": 0,
+    "todayHero": "Shadow Shaman",
+    "lastHero": "Slark"
+  },
+  "skillGuess": {
+    "count": 0,
+    "todayHero": "Doom",
+    "lastHero": "Abaddon"
+  }
+}
