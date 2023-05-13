@@ -2,6 +2,7 @@ const fs = require('fs')
 
 const { getGeneratedHeroes, getHeroes } = require('../utils/parseFiles')
 const { setClassicHeroes, setQuoteHeroes, setSkillHeroes } = require('./setStatus')
+const { sortQuoteAndAudio, sortSkill } = require('./helpers')
 
 
 const sortClassicHeroes = () => {
@@ -33,12 +34,13 @@ const sortClassicHeroes = () => {
 }
 
 const sortQuoteHeroes = () => {
+  const prohibitedHeroes = ["Marci", "Primal Beast", "Io", "Phoenix"]
   const generatedHeroes = getGeneratedHeroes();
   const generatedHeroesQuote = generatedHeroes.quoteGuessHeroes;
   const heroes = getHeroes();
   let randomNumber = Math.floor(Math.random() * 124);
   let newHero = heroes[randomNumber];
-  while (generatedHeroesQuote.includes(newHero.name)) {
+  while (generatedHeroesQuote.includes(newHero.name) || prohibitedHeroes.includes(newHero.name)) {
     randomNumber = Math.floor(Math.random() * 124);
     newHero = heroes[randomNumber]
   }
@@ -57,7 +59,7 @@ const sortQuoteHeroes = () => {
   }
 
   fs.writeFileSync(__dirname + "/../database/generatedHeroes.json", JSON.stringify(newData));
-
+  sortQuoteAndAudio(newHero.name)
 
   return setQuoteHeroes(newHero.name, lastHeroName)
 }
@@ -86,15 +88,15 @@ const sortSkillHeroes = () => {
 
   fs.writeFileSync(__dirname + "/../database/generatedHeroes.json", JSON.stringify(newData));
 
-
+  sortSkill(newHero.name)
   return setSkillHeroes(newHero.name, lastHeroName)
 }
 
-
-
-sortClassicHeroes();
-sortQuoteHeroes();
-sortSkillHeroes();
+module.exports = {
+  sortClassicHeroes,
+  sortQuoteHeroes,
+  sortSkillHeroes
+}
 
 
 

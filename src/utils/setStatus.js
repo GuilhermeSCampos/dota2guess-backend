@@ -25,10 +25,44 @@ const setSkillHeroes = (todayHeroName, lastHeroName) => {
   return console.log("Classic skill names updated!!")
 }
 
+const updateClassicCount = () => {
+  const status = getDailyStatus();
+  status.classicGuess.count += 1;
+  fs.writeFileSync(__dirname + '/../database/dailyStatus.json', JSON.stringify(status))
+  return status
+}
+
+const updateQuoteCount = () => {
+  const status = getDailyStatus();
+  status.quoteGuess.count += 1;
+  fs.writeFileSync(__dirname + '/../database/dailyStatus.json', JSON.stringify(status))
+  return status
+}
+
+const updateSkillCount = () => {
+  const status = getDailyStatus();
+  status.skillGuess.count += 1;
+  fs.writeFileSync(__dirname + '/../database/dailyStatus.json', JSON.stringify(status))
+  return status
+}
+
+const resetCount = () => {
+  const status = getDailyStatus();
+  status.skillGuess.count = 0;
+  status.quoteGuess.count = 0;
+  status.classicGuess.count = 0;
+  fs.writeFileSync(__dirname + '/../database/dailyStatus.json', JSON.stringify(status))
+  return status
+}
+
 module.exports = {
   setClassicHeroes,
   setQuoteHeroes,
-  setSkillHeroes
+  setSkillHeroes,
+  updateClassicCount,
+  updateQuoteCount,
+  updateSkillCount,
+  resetCount
 }
 
 

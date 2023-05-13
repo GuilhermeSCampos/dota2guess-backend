@@ -6,6 +6,13 @@ const getHeroes = () => {
   return heroes;
 }
 
+const getQuotesAndAudios = () => {
+  const data = fs.readFileSync(__dirname + '/../database/quotesAndAudios.json', 'utf-8');
+  const quotesAndAudios = JSON.parse(data);
+  return quotesAndAudios;
+}
+
+
 const getDailyStatus = () => {
   const data = fs.readFileSync(__dirname + '/../database/dailyStatus.json', 'utf-8');
   const status = JSON.parse(data);
@@ -16,12 +23,6 @@ const getGeneratedHeroes = () => {
   const data = fs.readFileSync(__dirname + '/../database/generatedHeroes.json', 'utf-8');
   const generatedHeroes = JSON.parse(data);
   return generatedHeroes;
-}
-
-const getQuotesAndAudios = () => {
-  const data = fs.readFileSync(__dirname + '/../database/generatedHeroes.json', 'utf-8');
-  const quotesAndAudios = JSON.parse(data);
-  return quotesAndAudios;
 }
 
 module.exports = {
