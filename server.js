@@ -3,10 +3,11 @@ const cron = require('node-cron');
 const moment = require('moment-timezone');
 const { sortClassicHeroes, sortQuoteHeroes, sortSkillHeroes } = require('./src/utils/sortHeroes')
 const { resetCount } = require('./src/utils/setStatus')
+require('dotenv').config();
 
 moment.tz.setDefault('America/Sao_Paulo');
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 9001, () => {
   cron.schedule('* * * * *', function() {
     sortClassicHeroes();
     sortQuoteHeroes();
