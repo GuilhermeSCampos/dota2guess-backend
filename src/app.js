@@ -11,6 +11,9 @@ app.use(express.json());
 
 app.use('/heroes', heroesRouter)
 app.use('/status', statusRouter)
+app.get('/', (req_, res) => {
+  res.send('API FUNCIONANDO!');
+});
 
 
 module.exports = app
