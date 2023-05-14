@@ -1,8 +1,8 @@
-const app = require('./app')
+const app = require('./src/app')
 const cron = require('node-cron');
 const moment = require('moment-timezone');
-const { sortClassicHeroes, sortQuoteHeroes, sortSkillHeroes } = require('./utils/sortHeroes')
-const { resetCount } = require('./utils/setStatus')
+const { sortClassicHeroes, sortQuoteHeroes, sortSkillHeroes } = require('./src/utils/sortHeroes')
+const { resetCount } = require('./src/utils/setStatus')
 
 moment.tz.setDefault('America/Sao_Paulo');
 
