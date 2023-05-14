@@ -7,7 +7,7 @@ const { resetCount } = require('./utils/setStatus')
 moment.tz.setDefault('America/Sao_Paulo');
 
 app.listen(3000, () => {
-  cron.schedule('0 0 * * *', function() {
+  cron.schedule('* * * * *', function() {
     sortClassicHeroes();
     sortQuoteHeroes();
     sortSkillHeroes();
