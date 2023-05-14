@@ -1,7 +1,7 @@
 {
   "version": 2,
   "public": true,
-  "build": [
+  "builds": [
     {
       "src": "./server.js",
       "use": "@vercel/node"
