@@ -5,15 +5,21 @@ const { sortClassicHeroes, sortQuoteHeroes, sortSkillHeroes } = require('./src/u
 const { resetCount } = require('./src/utils/setStatus')
 require('dotenv').config();
 
+const schedule = require('node-schedule');
+
 moment.tz.setDefault('America/Sao_Paulo');
 
+function sortAll() {
+  sortClassicHeroes();
+  sortQuoteHeroes();
+  sortSkillHeroes();
+  resetCount()
+  console.log('sorteou!')
+}
+
+schedule.scheduleJob('* * * * *', sortAll);
+
 app.listen(process.env.PORT || 9001, () => {
-  cron.schedule('* * * * *', function() {
-    sortClassicHeroes();
-    sortQuoteHeroes();
-    sortSkillHeroes();
-    resetCount()
-    console.log('Sorteando herois as 00:00 UTC -3');
-  });
+
   console.log('API ON')
 })
