@@ -26,7 +26,6 @@ app.get('/', (req_, res) => {
 });
 
 app.post('/sortAll', (req_, res) => {
-  sortAll();
   res.send('Heróis Sorteados!')
 })
 
