@@ -1,1 +1,21 @@
-{"classicGuess":{"count":0,"todayHero":"Alchemist","lastHero":"Razor"},"quoteGuess":{"count":0,"todayHero":"Visage","lastHero":"Lycan","quote":"I am the unyielding face of death.","audioLink":"https://static.wikia.nocookie.net/dota2_gamepedia/images/4/46/Vo_visage_visa_spawn_05.mp3/revision/latest?cb=20201022215401"},"skillGuess":{"count":0,"todayHero":"Legion Commander","lastHero":"Phoenix","skillImg":"https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/legion_commander_duel.png","skillName":"DUEL"}}
+{
+  "classicGuess": {
+    "count": 0,
+    "todayHero": "Anti-Mage",
+    "lastHero": "Alchemist"
+  },
+  "quoteGuess": {
+    "count": 0,
+    "todayHero": "Dark Willow",
+    "lastHero": "Visage",
+    "quote": "u Whaddya say Jex, you ready to play?",
+    "audioLink": "https://static.wikia.nocookie.net/dota2_gamepedia/images/e/e5/Vo_dark_willow_sylph_hero_intro_03.mp3/revision/latest?cb=20201010203046"
+  },
+  "skillGuess": {
+    "count": 0,
+    "todayHero": "Necrophos",
+    "lastHero": "Legion Commander",
+    "skillImg": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/necrolyte_sadist.png",
+    "skillName": "GHOST SHROUD"
+  }
+}
