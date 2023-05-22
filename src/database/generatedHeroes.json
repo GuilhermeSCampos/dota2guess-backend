@@ -1,1 +1,53 @@
-{"classicGuessHeroes":["Death Prophet","Anti-Mage","Alchemist","Razor","Morphling","Shadow Shaman","Juggernaut","Dark Seer","Tiny","Warlock","Phantom Assassin","Lina","Undying","Abaddon","Bloodseeker"],"quoteGuessHeroes":["Tusk","Dark Willow","Visage","Lycan","Juggernaut","Muerta","Bristleback","Keeper of the Light","Lich","Meepo","Broodmother","Disruptor","Gyrocopter","Outworld Destroyer","Dragon Knight"],"skillGuessHeroes":["Troll Warlord","Necrophos","Legion Commander","Phoenix","Marci","Ember Spirit","Drow Ranger","Pudge","Undying","Lion","Storm Spirit","Morphling","Jakiro","Shadow Fiend","Earth Spirit"]}
+{
+  "classicGuessHeroes": [
+    "Death Prophet",
+    "Anti-Mage",
+    "Alchemist",
+    "Razor",
+    "Morphling",
+    "Shadow Shaman",
+    "Juggernaut",
+    "Dark Seer",
+    "Tiny",
+    "Warlock",
+    "Phantom Assassin",
+    "Lina",
+    "Undying",
+    "Abaddon",
+    "Bloodseeker"
+  ],
+  "quoteGuessHeroes": [
+    "Tusk",
+    "Dark Willow",
+    "Visage",
+    "Lycan",
+    "Juggernaut",
+    "Muerta",
+    "Bristleback",
+    "Keeper of the Light",
+    "Lich",
+    "Meepo",
+    "Broodmother",
+    "Disruptor",
+    "Gyrocopter",
+    "Outworld Destroyer",
+    "Dragon Knight"
+  ],
+  "skillGuessHeroes": [
+    "Troll Warlord",
+    "Necrophos",
+    "Legion Commander",
+    "Phoenix",
+    "Marci",
+    "Ember Spirit",
+    "Drow Ranger",
+    "Pudge",
+    "Undying",
+    "Lion",
+    "Storm Spirit",
+    "Morphling",
+    "Jakiro",
+    "Shadow Fiend",
+    "Earth Spirit"
+  ]
+}

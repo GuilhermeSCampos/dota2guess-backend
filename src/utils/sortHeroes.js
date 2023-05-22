@@ -1,36 +1,16 @@
 const fs = require('fs')
 
 const { getGeneratedHeroes, getHeroes } = require('../utils/parseFiles')
-const { setClassicHeroes, setQuoteHeroes, setSkillHeroes } = require('./setStatus')
+const {  setQuoteHeroes, setSkillHeroes } = require('./setStatus')
 const { sortQuoteAndAudio, sortSkill } = require('./helpers')
 
 
-const sortClassicHeroes = () => {
-  const generatedHeroes = getGeneratedHeroes();
-  const generatedHeroesClassic = generatedHeroes.classicGuessHeroes;
+const sortHeroes = () => {
   const heroes = getHeroes()
   let randomNumber = Math.floor(Math.random() * 124);
   let newHero = heroes[randomNumber]
-  while (generatedHeroesClassic.includes(newHero.name)) {
-    let randomNumber = Math.floor(Math.random() * 124);
-    newHero = heroes[randomNumber]
-  }
-  if (generatedHeroesClassic.length === 15) {
-    generatedHeroesClassic.pop();
-  }
+  return newHero
 
-  generatedHeroesClassic.unshift(newHero.name)
-
-  const lastHeroName = generatedHeroesClassic.length > 1 ? generatedHeroesClassic[1] : "Ainda não há"
-
-  const newData = {
-    ...generatedHeroes,
-    classicGuessHeroes: generatedHeroesClassic
-  }
-
-  fs.writeFileSync(__dirname + "/../database/generatedHeroes.json", JSON.stringify(newData));
-
-  return setClassicHeroes(newHero.name, lastHeroName)
 }
 
 const sortQuoteHeroes = () => {
@@ -93,7 +73,7 @@ const sortSkillHeroes = () => {
 }
 
 module.exports = {
-  sortClassicHeroes,
+  sortHeroes,
   sortQuoteHeroes,
   sortSkillHeroes
 }

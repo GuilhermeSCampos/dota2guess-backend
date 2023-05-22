@@ -1,43 +1,21 @@
-const { getDailyStatus } = require('../utils/parseFiles')
-const { updateClassicCount, updateQuoteCount, updateSkillCount } = require('../utils/setStatus')
-
 const express = require('express');
+
+const classicController = require("../controller/classicGuess.controller")
+const quoteController = require("../controller/quoteGuess.controller")
+const skillController = require("../controller/skillGuess.controller")
 
 const router = express.Router()
 
-router.get('/', (req_, res) => {
-  const status = getDailyStatus();
-  res.json(status)
-})
+router.get('/classic', classicController.getTodayInfo)
 
-router.get('/classicStatus', (req_, res) => {
-  const status = getDailyStatus();
-  res.json(status.classicGuess);
-})
+router.get('/quote', quoteController.getTodayInfo)
 
-router.get('/quoteStatus', (req_, res) => {
-  const status = getDailyStatus();
-  res.json(status.quoteGuess);
-})
+router.get('/skill', skillController.getTodayInfo)
 
-router.get('/skillStatus', (req_, res) => {
-  const status = getDailyStatus();
-  res.json(status.skillGuess);
-})
+router.put('/classiccount', classicController.updateCount)
 
-router.put('/classicCount', (req_, res) => {
-  const newStatus = updateClassicCount();
-  res.json(newStatus);
-})
+router.put('/quotecount', quoteController.updateCount)
 
-router.put('/quoteCount', (req_, res) => {
-  const newStatus = updateQuoteCount();
-  res.json(newStatus);
-})
-
-router.put('/skillCount', (req_, res) => {
-  const newStatus = updateSkillCount();
-  res.json(newStatus);
-})
+router.put('/skillcount', skillController.updateCount)
 
 module.exports = router;
