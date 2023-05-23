@@ -3,6 +3,7 @@ const express = require('express');
 const classicController = require("../controller/classicGuess.controller")
 const quoteController = require("../controller/quoteGuess.controller")
 const skillController = require("../controller/skillGuess.controller")
+const controller = require("../controller/controller")
 
 const router = express.Router()
 
@@ -17,5 +18,7 @@ router.put('/classiccount', classicController.updateCount)
 router.put('/quotecount', quoteController.updateCount)
 
 router.put('/skillcount', skillController.updateCount)
+
+router.get('/', controller.getDailyStatus)
 
 module.exports = router;
