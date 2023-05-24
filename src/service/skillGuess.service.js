@@ -31,9 +31,10 @@ const dailySort = async () => {
     const { skills } = findHero(hero.name);
     const randomSelector = Math.floor(Math.random() * skills.length)
     const { skillImg, skillName } = skills[randomSelector];
+    let rotation = Math.floor(Math.random() * 3) + 1;
 
     await skillModel.resetCount();
-    await skillModel.updateHeroes(hero.name, skillImg, skillName)
+    await skillModel.updateHeroes(hero.name, skillImg, skillName, rotation)
     await skillModel.generateHero(hero.name)
   } catch (error) {
     console.log(error)

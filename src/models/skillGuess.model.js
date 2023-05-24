@@ -7,12 +7,13 @@ const getTodayInfo = async () => {
   return result[0]
 }
 
-const updateHeroes = async (newHero, skillimg, skillname) => {
+const updateHeroes = async (newHero, skillimg, skillname, rotation) => {
   const info = await getTodayInfo();
   const { todayhero } = info
+  console.log(rotation)
   return connection.execute(
-    'UPDATE skillguess SET todayhero = ?, lasthero = ?, skillimg = ?, skillname = ?',
-    [newHero, todayhero, skillimg, skillname]
+    'UPDATE skillguess SET todayhero = ?, lasthero = ?, skillimg = ?, skillname = ?, rotation = ?',
+    [newHero, todayhero, skillimg, skillname, rotation]
   )
 }
 
