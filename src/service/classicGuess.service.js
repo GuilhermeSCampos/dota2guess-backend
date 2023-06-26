@@ -2,6 +2,8 @@ const classicModel = require('../models/classicGuess.model');
 
 const { sortHeroes } = require('../utils/sortHeroes')
 
+const { sortQuoteAndAudio, sortSkill } = require("../utils/helpers")
+
 const getTodayInfo = async () => {
   const data = await classicModel.getTodayInfo();
   return data;
@@ -27,8 +29,12 @@ const dailySort = async () => {
       hero = sortHeroes();
     }
 
+    const { text, audioLink } = sortQuoteAndAudio(hero.name)
+    const { skillImg, skillName } = sortSkill(hero.name)
+
+
     await classicModel.resetCount();
-    await classicModel.updateHeroes(hero.name)
+    await classicModel.updateHeroes(hero.name, text, audioLink, skillImg, skillName)
     await classicModel.generateHero(hero.name)
   } catch (error) {
     console.log(error)

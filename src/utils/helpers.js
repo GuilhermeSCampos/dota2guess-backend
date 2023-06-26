@@ -24,20 +24,24 @@ const sortQuoteAndAudio = (heroName) => {
   const { responses } = findQuotesAndAudios(heroName)
   const randomSelector = Math.floor(Math.random() * responses.length)
   const info = responses[randomSelector]
-  status.quoteGuess.quote = info.text;
-  status.quoteGuess.audioLink = info.audioLink;
-  fs.writeFileSync(__dirname + "/../database/dailyStatus.json", JSON.stringify(status));
+  return info;
+  // status.quoteGuess.quote = info.text;
+  // status.quoteGuess.audioLink = info.audioLink;
+  // fs.writeFileSync(__dirname + "/../database/dailyStatus.json", JSON.stringify(status));
 }
 
 const sortSkill = (heroName) => {
   const status = getDailyStatus();
   const { skills } = findHero(heroName);
   const randomSelector = Math.floor(Math.random() * skills.length)
-  const { skillImg, skillName } = skills[randomSelector];
-  status.skillGuess.skillImg = skillImg;
-  status.skillGuess.skillName = skillName;
-  fs.writeFileSync(__dirname + "/../database/dailyStatus.json", JSON.stringify(status));
+  const info = skills[randomSelector];
+  return info;
+  // status.skillGuess.skillImg = skillImg;
+  // status.skillGuess.skillName = skillName;
+  // fs.writeFileSync(__dirname + "/../database/dailyStatus.json", JSON.stringify(status));
 }
+
+sortSkill("Clinkz")
 
 
 

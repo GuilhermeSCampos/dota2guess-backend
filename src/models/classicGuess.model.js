@@ -22,7 +22,7 @@ const deleteGeneratedHero = async (heroName) => {
   );
 }
 
-const generateHero = async(heroName) => {
+const generateHero = async (heroName) => {
   const [{ insertId }] = await connection.execute(
     `INSERT INTO generatedclassic (hero) VALUES (?)`,
     [heroName],
@@ -42,12 +42,12 @@ const resetCount = async () => {
   )
 }
 
-const updateHeroes = async (newHero) => {
+const updateHeroes = async (newHero, quote, audioLink, skillImg, skillName) => {
   const info = await getTodayInfo();
   const { todayhero } = info
   return connection.execute(
-    'UPDATE classicguess SET todayhero = ?, lasthero = ?',
-    [newHero, todayhero]
+    'UPDATE classicguess SET todayhero = ?, lasthero = ?, quote = ?, audioLink = ?, skillimg = ?, skillName = ?',
+    [newHero, todayhero, quote, audioLink, skillImg, skillName]
   )
 }
 

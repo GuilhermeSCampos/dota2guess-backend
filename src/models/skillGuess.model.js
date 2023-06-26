@@ -10,7 +10,6 @@ const getTodayInfo = async () => {
 const updateHeroes = async (newHero, skillimg, skillname, rotation) => {
   const info = await getTodayInfo();
   const { todayhero } = info
-  console.log(rotation)
   return connection.execute(
     'UPDATE skillguess SET todayhero = ?, lasthero = ?, skillimg = ?, skillname = ?, rotation = ?',
     [newHero, todayhero, skillimg, skillname, rotation]
