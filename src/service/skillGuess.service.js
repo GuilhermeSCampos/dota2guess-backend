@@ -10,7 +10,7 @@ const getTodayInfo = async () => {
 
 const deleteOldestHero = async (generatedHeroes) => {
   const MAX_LENGTH = 15
-  if (generatedHeroes.length == MAX_LENGTH) {
+  if (generatedHeroes.length >= MAX_LENGTH) {
     let heroName = generatedHeroes[0]
     await skillModel.deleteGeneratedHero(heroName)
   }
@@ -20,8 +20,8 @@ const dailySort = async () => {
   try {
     let hero = sortHeroes();
     let generatedHeroes = await skillModel.getGeneratedHeroes()
-
     generatedHeroes = generatedHeroes.map((e) => e.hero)
+
     await deleteOldestHero(generatedHeroes)
 
     while (generatedHeroes.includes(hero.name)) {
@@ -40,6 +40,7 @@ const dailySort = async () => {
     console.log(error)
   }
 }
+
 
 const sum = async () => {
   try {
