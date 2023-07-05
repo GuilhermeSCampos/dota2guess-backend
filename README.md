@@ -36,7 +36,7 @@ Tecnologias que eu utilizei para desenvolver:
 
 <br/>
 
-**Insira os comandos no script.sql e crie as tabelas no seu banco de dados.**
+**Insira os comandos do script.sql no seu banco e crie as tabelas**
 
 ```bash
 # Inicie o servidor com o nodemon
