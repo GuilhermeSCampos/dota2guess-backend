@@ -46,12 +46,78 @@ Tecnologias que eu utilizei para desenvolver:
 ## Rotas
 ### GET
 **/status --> Recupera informações sobre o status de todas as categorias, assim como todos os heróis e sua informação**
+```json
+{
+  "classic": {
+    "count": 3,
+    "todayhero": "Sniper",
+    "lasthero": "Rubick",
+    "skillimg": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_assassinate.png",
+    "quote": "I call the shots around here.",
+    "audioLink": "https://static.wikia.nocookie.net/dota2_gamepedia/images/f/f2/Vo_sniper_helmet_snip_spawn_03.mp3/revision/latest?cb=20201030101516",
+    "skillName": "ASSASSINATE"
+  },
+  "quote": {
+    "count": 3,
+    "todayhero": "Necrophos",
+    "lasthero": "Storm Spirit",
+    "quote": "Plague spreader.",
+    "audiolink": "https://static.wikia.nocookie.net/dota2_gamepedia/images/c/cf/Vo_necrolyte_necr_move_04.mp3/revision/latest?cb=20201017150801"
+  },
+  "skill": {
+    "count": 8,
+    "todayhero": "Naga Siren",
+    "lasthero": "Nyx Assassin",
+    "skillimg": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/naga_siren_ensnare.png",
+    "skillname": "ENSNARE",
+    "rotation": 3
+  },
+  "heroes": ["array com todos os herois"]
+}
+```
 <br/>
 **/status/classic --> Recupera informações especifícamente sobre a modalidade classic**
+
+```json
+{
+  "count": 3,
+  "todayhero": "Sniper",
+  "lasthero": "Rubick",
+  "skillimg": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/sniper_assassinate.png",
+  "quote": "I call the shots around here.",
+  "audioLink": "https://static.wikia.nocookie.net/dota2_gamepedia/images/f/f2/Vo_sniper_helmet_snip_spawn_03.mp3/revision/latest?cb=20201030101516",
+  "skillName": "ASSASSINATE"
+}
+```
+
 <br/>
+
 **/status/quote --> Recupera informações especifícamente sobre a modalidade quote**
+
+```json
+{
+  "count": 3,
+  "todayhero": "Necrophos",
+  "lasthero": "Storm Spirit",
+  "quote": "Plague spreader.",
+  "audiolink": "https://static.wikia.nocookie.net/dota2_gamepedia/images/c/cf/Vo_necrolyte_necr_move_04.mp3/revision/latest?cb=20201017150801"
+}
+```
 <br/>
+
 **/status/skill --> Recupera informações especifícamente sobre a modalidade skill**
+
+```json
+{
+  "count": 8,
+  "todayhero": "Naga Siren",
+  "lasthero": "Nyx Assassin",
+  "skillimg": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/naga_siren_ensnare.png",
+  "skillname": "ENSNARE",
+  "rotation": 3
+}
+```
+
 <br/>
 
 
