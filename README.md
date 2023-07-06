@@ -11,6 +11,7 @@ Tecnologias que eu utilizei para desenvolver:
 - [NodeJS](https://nodejs.org/en/about)
 - [Express](https://expressjs.com/pt-br/)
 - [MySql](https://www.mysql.com/)
+- Arquitetura MSC
 
 ## 💻 Como Usar
 
