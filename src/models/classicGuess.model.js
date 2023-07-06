@@ -44,10 +44,10 @@ const resetCount = async () => {
 
 const updateHeroes = async (newHero, quote, audioLink, skillImg, skillName) => {
   const info = await getTodayInfo();
-  const { todayhero } = info
+  const lasthero = !info ? '' : info.todayhero
   return connection.execute(
     'UPDATE classicguess SET todayhero = ?, lasthero = ?, quote = ?, audioLink = ?, skillimg = ?, skillName = ?',
-    [newHero, todayhero, quote, audioLink, skillImg, skillName]
+    [newHero, lasthero, quote, audioLink, skillImg, skillName]
   )
 }
 

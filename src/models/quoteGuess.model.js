@@ -9,10 +9,10 @@ const getTodayInfo = async () => {
 
 const updateHeroes = async (newHero, quote, audiolink) => {
   const info = await getTodayInfo();
-  const { todayhero } = info
+  const lasthero = !info ? '' : info.todayhero
   return connection.execute(
     'UPDATE quoteguess SET todayhero = ?, lasthero = ?, quote = ?, audiolink = ?',
-    [newHero, todayhero, quote, audiolink]
+    [newHero, lasthero, quote, audiolink]
   )
 }
 

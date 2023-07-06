@@ -29,7 +29,10 @@ const dailySort = async () => {
       hero = sortHeroes();
     }
 
-    const { text, audioLink } = sortQuoteAndAudio(hero.name)
+
+    const prohibitedHeroes = ["Marci", "Primal Beast", "Io", "Phoenix"]
+
+    const { text, audioLink } = prohibitedHeroes.includes(hero.name) ? { text: "''", audioLink: "''" } : sortQuoteAndAudio(hero.name)
     const { skillImg, skillName } = sortSkill(hero.name)
 
 
