@@ -1556,31 +1556,31 @@
     "responses": [
       {
         "text": "The Veiled Sisters sent me.",
-        "audioLink": "https://static.wikia.nocookie.net/dota2_gamepedia/images/b/b1/Vo_phantom_assassin_phass_arc_spawn_02.mp3/revision/latest?cb=20201018132701"
-      },
-      {
-        "text": "I'm here to blur the line between life and death.",
-        "audioLink": "https://static.wikia.nocookie.net/dota2_gamepedia/images/d/d7/Vo_phantom_assassin_phass_spawn_03.mp3/revision/latest?cb=20201018133559"
-      },
-      {
-        "text": "Where falls my shadow, fells my blade.",
-        "audioLink": "https://static.wikia.nocookie.net/dota2_gamepedia/images/e/e3/Vo_phantom_assassin_phass_arc_spawn_03.mp3/revision/latest?cb=20201018132703"
-      },
-      {
-        "text": "Don't blink, or you'll miss me.",
         "audioLink": "https://static.wikia.nocookie.net/dota2_gamepedia/images/0/0c/Vo_phantom_assassin_phass_spawn_04.mp3/revision/latest?cb=20201018133602"
       },
       {
-        "text": "In the blink of an eye.",
-        "audioLink": "https://static.wikia.nocookie.net/dota2_gamepedia/images/a/ad/Vo_phantom_assassin_phass_arc_spawn_04.mp3/revision/latest?cb=20201018132706"
+        "text": "I'm here to blur the line between life and death.",
+        "audioLink": "https://static.wikia.nocookie.net/dota2_gamepedia/images/a/af/Vo_phantom_assassin_phass_spawn_05.mp3/revision/latest?cb=20201018133604"
       },
       {
-        "text": "Death at my hands is an honor.",
+        "text": "Where falls my shadow, fells my blade.",
         "audioLink": "https://static.wikia.nocookie.net/dota2_gamepedia/images/6/60/Vo_phantom_assassin_phass_move_14.mp3/revision/latest?cb=20201018133308"
       },
       {
+        "text": "Don't blink, or you'll miss me.",
+        "audioLink": "https://static.wikia.nocookie.net/dota2_gamepedia/images/f/fd/Vo_phantom_assassin_phass_move_09.mp3/revision/latest?cb=20201018133255"
+      },
+      {
+        "text": "In the blink of an eye.",
+        "audioLink": "https://static.wikia.nocookie.net/dota2_gamepedia/images/1/14/Vo_phantom_assassin_phass_move_10.mp3/revision/latest?cb=20201018133258"
+      },
+      {
+        "text": "Death at my hands is an honor.",
+        "audioLink": "https://static.wikia.nocookie.net/dota2_gamepedia/images/e/e4/Vo_phantom_assassin_phass_kill_10.mp3/revision/latest?cb=20201018133105"
+      },
+      {
         "text": "The Veiled Oracle chose you.",
-        "audioLink": "https://static.wikia.nocookie.net/dota2_gamepedia/images/5/52/Vo_phantom_assassin_phass_arc_move_14.mp3/revision/latest?cb=20201018132411"
+        "audioLink": "https://static.wikia.nocookie.net/dota2_gamepedia/images/f/fb/Vo_phantom_assassin_phass_kill_03.mp3/revision/latest?cb=20201018133046"
       }
     ]
   },
