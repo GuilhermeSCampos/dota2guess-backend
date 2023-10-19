@@ -19,8 +19,11 @@ app.use('/heroes', heroesRouter)
 app.use('/status', statusRouter)
 
 app.post('/sortall', async (req_, res) => {
+  console.log("classic");
   await classicService.dailySort();
+  console.log("skill");
   await skillService.dailySort();
+  console.log("quote");
   await quoteService.dailySort();
 
   res.send('Heróis Sorteados!')

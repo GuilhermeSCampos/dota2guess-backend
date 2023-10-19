@@ -9,32 +9,34 @@ const getTodayInfo = async () => {
   return data;
 }
 
-const deleteOldestHero = async (generatedHeroes) => {
+const deleteOldestHero = async () => {
+  let generatedHeroes = await classicModel.getGeneratedHeroes()
+  generatedHeroes = generatedHeroes.map((e) => e.hero)
   const MAX_LENGTH = 15
-  if (generatedHeroes.length == MAX_LENGTH) {
+  while (generatedHeroes.length >= MAX_LENGTH) {
     let heroName = generatedHeroes[0]
     await classicModel.deleteGeneratedHero(heroName)
+    generatedHeroes.shift();
   }
+
+  return generatedHeroes;
 }
 
 const dailySort = async () => {
   try {
     let hero = sortHeroes();
-    let generatedHeroes = await classicModel.getGeneratedHeroes()
-
-    generatedHeroes = generatedHeroes.map((e) => e.hero)
-    await deleteOldestHero(generatedHeroes)
+    
+    const generatedHeroes = await deleteOldestHero();
 
     while (generatedHeroes.includes(hero.name)) {
+
       hero = sortHeroes();
     }
-
 
     const prohibitedHeroes = ["Marci", "Primal Beast", "Io", "Phoenix"]
 
     const { text, audioLink } = prohibitedHeroes.includes(hero.name) ? { text: "''", audioLink: "''" } : sortQuoteAndAudio(hero.name)
     const { skillImg, skillName } = sortSkill(hero.name)
-
 
     await classicModel.resetCount();
     await classicModel.updateHeroes(hero.name, text, audioLink, skillImg, skillName)
