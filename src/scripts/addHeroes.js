@@ -1,6 +1,7 @@
-const puppeteer = require('puppeteer')
+
 const fs = require('fs')
 const { getHeroesNames } = require('../utils/parseFiles')
+require('dotenv').config()
 
 const fiveSkillHeroes = ['Beastmaster', 'Dark Willow',
   'Earth Spirit', 'Ember Spirit', 'Ogre Magi', 'Techies', 'Timbersaw', 'Tinker', 'Tiny', 'Treant Protector', 'Troll Warlord']
@@ -9,15 +10,35 @@ const sixSkillHeros = ['Io', 'Keeper of the Light', 'Morphling']
 
 const heroesNames = getHeroesNames();
 
+let puppeteer;
+let chrome = {};
 
+if (process.env.CYCLIC_URL) {
+  chrome = require("chrome-aws-lambda");
+  puppeteer = require("puppeteer-core");
+} else {
+  puppeteer = require("puppeteer");
+}
 
 const addHeroes = async (initialIndex, FinalIndex) => {
-  const URL = `https://www.dota2.com/hero/${heroesNames[initialIndex]}`
-  const heroes = []
-  const browser = await puppeteer.launch({
+  let options = {
     headless: "new",
     timeout: 50000
-  })
+  };
+
+  if (process.env.CYCLIC_URL) {
+    options = {
+      args: [...chrome.args, "--hide-scrollbars", "--disable-web-security"],
+      defaultViewport: chrome.defaultViewport,
+      executablePath: await chrome.executablePath,
+      headless: true,
+      ignoreHTTPSErrors: true,
+    };
+  }
+
+  const URL = `https://www.dota2.com/hero/${heroesNames[initialIndex]}`
+  const heroes = []
+  const browser = await puppeteer.launch(options)
   const page = await browser.newPage();
 
   await page.setViewport({
@@ -176,9 +197,10 @@ const addHeroes = async (initialIndex, FinalIndex) => {
   }
   await browser.close();
   // fs.writeFileSync(__dirname + '/../heroesInfo/heroes.json', JSON.stringify(heroes))
-
   return heroes;
 }
+
+
 
 module.exports = {
   addHeroes
