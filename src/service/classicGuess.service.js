@@ -1,6 +1,6 @@
 const classicModel = require('../models/classicGuess.model');
-
-const { sortHeroes } = require('../utils/sortHeroes')
+const { sortHeroes } = require('./heroes.service')
+const { getHeroes } = require('../models/heroes.model')
 
 const { sortQuoteAndAudio, sortSkill } = require("../utils/helpers")
 
@@ -24,13 +24,14 @@ const deleteOldestHero = async () => {
 
 const dailySort = async () => {
   try {
-    let hero = sortHeroes();
-    
+    const heroes = await getHeroes();
+    let hero = sortHeroes(heroes);
+
     const generatedHeroes = await deleteOldestHero();
 
     while (generatedHeroes.includes(hero.name)) {
 
-      hero = sortHeroes();
+      hero = sortHeroes(heroes);
     }
 
     const prohibitedHeroes = ["Marci", "Primal Beast", "Io", "Phoenix"]

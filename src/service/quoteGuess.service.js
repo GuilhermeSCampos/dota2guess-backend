@@ -1,8 +1,8 @@
 const quoteModel = require('../models/quoteGuess.model');
+const { sortHeroes } = require('./heroes.service')
+const { getHeroes } = require('../models/heroes.model')
 
 const { findQuotesAndAudios } = require("../utils/helpers")
-
-const { sortHeroes } = require('../utils/sortHeroes')
 
 const getTodayInfo = async () => {
   const data = await quoteModel.getTodayInfo();
@@ -11,7 +11,6 @@ const getTodayInfo = async () => {
 
 const deleteOldestHero = async (generatedHeroes) => {
   const MAX_LENGTH = 15
-  // console.log(generatedHeroes, generatedHeroes.length)
   if (generatedHeroes.length == MAX_LENGTH) {
     let heroName = generatedHeroes[0]
     await quoteModel.deleteGeneratedHero(heroName)
@@ -20,14 +19,15 @@ const deleteOldestHero = async (generatedHeroes) => {
 
 const dailySort = async () => {
   try {
-    let hero = sortHeroes();
+    const heroes = await getHeroes();
+    let hero = sortHeroes(heroes);
     let generatedHeroes = await quoteModel.getGeneratedHeroes()
     const prohibitedHeroes = ["Marci", "Primal Beast", "Io", "Phoenix"]
     generatedHeroes = generatedHeroes.map((e) => e.hero)
     await deleteOldestHero(generatedHeroes)
 
     while (generatedHeroes.includes(hero.name) || prohibitedHeroes.includes(hero.name)) {
-      hero = sortHeroes();
+      hero = sortHeroes(heroes);
     }
 
     const { responses } = findQuotesAndAudios(hero.name)
