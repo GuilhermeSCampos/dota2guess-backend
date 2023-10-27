@@ -1,5 +1,5 @@
 const fs = require('fs')
-const { getDailyStatus, getQuotesAndAudios, getHeroes } = require('./parseFiles')
+const { getQuotesAndAudios, getHeroes } = require('./parseFiles')
 
 const toSnakeCase = (string) => {
   let newString = string.split(" ");
@@ -20,7 +20,6 @@ const findQuotesAndAudios = (heroName) => {
 }
 
 const sortQuoteAndAudio = (heroName) => {
-  const status = getDailyStatus();
   const { responses } = findQuotesAndAudios(heroName)
   const randomSelector = Math.floor(Math.random() * responses.length)
   const info = responses[randomSelector]
@@ -31,7 +30,6 @@ const sortQuoteAndAudio = (heroName) => {
 }
 
 const sortSkill = (heroName) => {
-  const status = getDailyStatus();
   const { skills } = findHero(heroName);
   const randomSelector = Math.floor(Math.random() * skills.length)
   const info = skills[randomSelector];

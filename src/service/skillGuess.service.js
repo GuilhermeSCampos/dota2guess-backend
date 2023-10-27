@@ -1,6 +1,5 @@
 const skillModel = require('../models/skillGuess.model');
 const { sortHeroes } = require('./heroes.service')
-const { getHeroes } = require('../models/heroes.model')
 
 const { findHero } = require('../utils/helpers')
 
@@ -18,9 +17,8 @@ const deleteOldestHero = async (generatedHeroes) => {
   }
 }
 
-const dailySort = async () => {
+const dailySort = async (heroes) => {
   try {
-    const heroes = await getHeroes();
     let hero = sortHeroes(heroes);
     let generatedHeroes = await skillModel.getGeneratedHeroes()
     generatedHeroes = generatedHeroes.map((e) => e.hero)

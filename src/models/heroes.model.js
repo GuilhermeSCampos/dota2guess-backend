@@ -23,7 +23,7 @@ const truncateTable = async () => {
   await connection.execute(
     'TRUNCATE TABLE heroes',
   );
-  
+
 }
 
 // Arrow function para recuperar todos os heróis da tabela com suas skills
@@ -43,10 +43,26 @@ const getHeroes = async () => {
   }
 }
 
+const updateHeroesRole = async (heroUpdates) => {
+  try {
+    for (const heroUpdate of heroUpdates) {
+      const { name, role } = heroUpdate;
+      const updateQuery = 'UPDATE heroes SET role = ? WHERE name = ?';
+      await connection.execute(updateQuery, [role, name]);
+      console.log(`Role do herói "${name}" atualizada para "${role}"`);
+    }
+  } catch (err) {
+    console.error('Erro ao atualizar a role dos heróis:', err);
+  } finally {
+    connection.end();
+  }
+}
+
 module.exports = {
   insertHeroes,
   truncateTable,
-  getHeroes
+  getHeroes,
+  updateHeroesRole
 }
 
 

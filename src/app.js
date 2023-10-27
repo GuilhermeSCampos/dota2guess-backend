@@ -3,6 +3,8 @@ const statusRouter = require('./routes/status.router')
 const classicService = require('./service/classicGuess.service')
 const skillService = require('./service/skillGuess.service')
 const quoteService = require('./service/quoteGuess.service')
+const heroesService = require('./service/heroes.service')
+const { getHeroes } = require('./models/heroes.model')
 
 const cors = require('cors')
 
@@ -19,14 +21,17 @@ app.use('/heroes', heroesRouter)
 app.use('/status', statusRouter)
 
 app.post('/sortall', async (req_, res) => {
-  console.log("classic");
-  await classicService.dailySort();
-  console.log("skill");
-  await skillService.dailySort();
-  console.log("quote");
-  await quoteService.dailySort();
+  const heroes = await getHeroes();
 
-  res.send('Heróis Sorteados!')
+  await classicService.dailySort(heroes);
+
+  await skillService.dailySort(heroes);
+
+  await quoteService.dailySort(heroes);
+
+  await heroesService.mapAndCreateRoles();
+
+  res.status(201).json({ message: "Sorteio realizado com sucesso!" })
 })
 
 app.get('/', (req_, res) => {

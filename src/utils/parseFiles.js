@@ -1,5 +1,4 @@
 const fs = require('fs');
-const { get } = require('http');
 
 const getHeroes = () => {
   const data = fs.readFileSync(__dirname + '/../database/heroes.json', 'utf-8');
@@ -28,23 +27,8 @@ const getQuotesAndAudios = () => {
   return quotesAndAudios;
 }
 
-
-const getDailyStatus = () => {
-  const data = fs.readFileSync(__dirname + '/../database/dailyStatus.json', 'utf-8');
-  const status = JSON.parse(data);
-  return status;
-}
-
-const getGeneratedHeroes = () => {
-  const data = fs.readFileSync(__dirname + '/../database/generatedHeroes.json', 'utf-8');
-  const generatedHeroes = JSON.parse(data);
-  return generatedHeroes;
-}
-
 module.exports = {
   getHeroes,
-  getDailyStatus,
-  getGeneratedHeroes,
   getQuotesAndAudios,
   getHeroesNames
 }

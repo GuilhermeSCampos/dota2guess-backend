@@ -1,6 +1,6 @@
 const quoteModel = require('../models/quoteGuess.model');
 const { sortHeroes } = require('./heroes.service')
-const { getHeroes } = require('../models/heroes.model')
+
 
 const { findQuotesAndAudios } = require("../utils/helpers")
 
@@ -17,9 +17,8 @@ const deleteOldestHero = async (generatedHeroes) => {
   }
 }
 
-const dailySort = async () => {
+const dailySort = async (heroes) => {
   try {
-    const heroes = await getHeroes();
     let hero = sortHeroes(heroes);
     let generatedHeroes = await quoteModel.getGeneratedHeroes()
     const prohibitedHeroes = ["Marci", "Primal Beast", "Io", "Phoenix"]
