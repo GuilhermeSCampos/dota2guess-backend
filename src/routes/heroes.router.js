@@ -11,7 +11,7 @@ router.post('/firsthalf', async (req_, res) => {
     await insertFirstHalf(addGenderToHeroes(heroes));
     return res.sendStatus(201);
   } catch (error) {
-    return res.status(400).send(error.message());
+    return res.status(400).send(error);
   }
 
 });
