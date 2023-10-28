@@ -6,9 +6,14 @@ const { insertFirstHalf, insertSecondHalf } = require('../service/heroes.service
 const router = express.Router();
 
 router.post('/firsthalf', async (req_, res) => {
-  const heroes = await addHeroes(0, 62);
-  await insertFirstHalf(addGenderToHeroes(heroes));
-  return res.sendStatus(201);
+  try {
+    const heroes = await addHeroes(0, 62);
+    await insertFirstHalf(addGenderToHeroes(heroes));
+    return res.sendStatus(201);
+  } catch (error) {
+    return res.status(400).send(error.message());
+  }
+
 });
 
 router.post('/secondhalf', async (req_, res) => {

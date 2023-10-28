@@ -199,6 +199,7 @@ const addHeroes = async (initialIndex, FinalIndex) => {
 }
 
 
+
 module.exports = {
   addHeroes
 }
