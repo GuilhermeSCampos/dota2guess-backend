@@ -1,5 +1,5 @@
 
-const fs = require('fs')
+const chromium = require("chrome-aws-lambda");
 const { getHeroesNames } = require('../utils/parseFiles')
 require('dotenv').config()
 
@@ -11,10 +11,10 @@ const sixSkillHeros = ['Io', 'Keeper of the Light', 'Morphling']
 const heroesNames = getHeroesNames();
 
 let puppeteer;
-let chrome = {};
+
+puppeteer = require("puppeteer-core");
 
 if (process.env.CYCLIC_URL) {
-  chrome = require("chrome-aws-lambda");
   puppeteer = require("puppeteer-core");
 } else {
   puppeteer = require("puppeteer");
@@ -28,9 +28,9 @@ const addHeroes = async (initialIndex, FinalIndex) => {
 
   if (process.env.CYCLIC_URL) {
     options = {
-      args: [...chrome.args, "--hide-scrollbars", "--disable-web-security"],
-      defaultViewport: chrome.defaultViewport,
-      executablePath: await chrome.executablePath,
+      args: [...chromium.args, "--hide-scrollbars", "--disable-web-security"],
+      defaultViewport: chromium.defaultViewport,
+      executablePath: await chromium.executablePath,
       headless: true,
       ignoreHTTPSErrors: true,
     };
@@ -104,8 +104,6 @@ const addHeroes = async (initialIndex, FinalIndex) => {
     let intelligence = await page.evaluate(() => {
       return document.querySelector('#dota_react_root > div > div > div.heropage_DetailsBarContainer_2v_HD > div > div.heropage_DetailsAttributes_SW4jL > div.heropage_TopAttributesSection_3GFuR > div.heropage_AttributesContainer_3rZsO > div:nth-child(3) > div.heropage_AttributeValue_3Gsgg')?.innerText
     })
-
-
 
     const skills = []
 
@@ -199,7 +197,6 @@ const addHeroes = async (initialIndex, FinalIndex) => {
   // fs.writeFileSync(__dirname + '/../heroesInfo/heroes.json', JSON.stringify(heroes))
   return heroes;
 }
-
 
 
 module.exports = {
