@@ -12,6 +12,7 @@ Tecnologias que eu utilizei para desenvolver:
 - [Express](https://expressjs.com/pt-br/)
 - [MySql](https://www.mysql.com/)
 - Arquitetura MSC
+- Puppeteer
 
 ## 💻 Como Usar
 
